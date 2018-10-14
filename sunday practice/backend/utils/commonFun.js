@@ -4,10 +4,3 @@ module.exports.sendRes = (res, success, msg) => {
         msg: msg
     });
 }
-module.exports.callBack=(err, user) => {
-    if (err) commonFn.sendRes(res, false, "User can't be created");
-    else commonFn.sendRes(res, true,
-        "User Created, UserID: " + user._id);
-    }
-   
- 
