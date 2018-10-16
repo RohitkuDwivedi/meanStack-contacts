@@ -1,14 +1,14 @@
 const express = require('express')
 const app = express()
-const bodyParser = require("body-parser");	
+const bodyParser = require("body-parser");
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
 //mongoose connection database
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true)
 mongoDB='mongodb://localhost/my_database';
-mongoose.connect(mongoDB, {
-    useNewUrlParser: true
-});
+mongoose.connect(mongoDB, {useNewUrlParser: true});
 mongoose.connection.on('connected', () => {
     console.log('Connected to database ' + mongoDB);
 });
