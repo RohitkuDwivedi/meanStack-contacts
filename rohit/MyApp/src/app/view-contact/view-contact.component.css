@@ -18,8 +18,12 @@
   }
   .addNew{
     background-color: aquamarine;
-    
-  
+  }
+  .logout{
+    background-color: yellow;
+  }
+  .logout:hover{
+    background-color: yellowgreen;    
   }
   .contacts{
   

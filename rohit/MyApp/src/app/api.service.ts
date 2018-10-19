@@ -16,7 +16,6 @@ export class ApiService {
 
   authenticate(user) {
     return this.http.post("http://localhost:3000/registeration/authenticate", user)
-    .pipe(map(res => console.log(res) ))   // yet to find why???
   }
 
   addToContact(data){
@@ -29,15 +28,15 @@ export class ApiService {
     localStorage.setItem('user', JSON.stringify(user));
   }
   
-  loadUser() {
+  loadUser(str:string) {
     
-    let result = JSON.parse(localStorage.getItem('user'));
+    let result = JSON.parse(localStorage.getItem(str));
     return result;
     
   }
   
   isLoggedIn() {
-    return (this.loadUser()) ? true : false;
+    return (this.loadUser('user')) ? true : false;
   }
   
   logOut() {

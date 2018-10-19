@@ -1,28 +1,35 @@
-.mainhead{
-    height:10%;
-  }
-  .mainbody{
-    height:90%;
-    display: flex;
-    flex-flow: row;
-  
-  
-  }
-  .left{
-    border-right: 2px solid black;
-    text-align: center;
-    width: 20%;
-    height: 100%;
-  }
-  .left a{
-    
-  }
-  .right{
-    align-content: center;
-    width: 80%;
-    height:100%;
-  
-  
-  
-  }
-  
+.mainhead {
+  height: 10%;
+  margin: 0px;
+  padding: 0px;
+}
+.mainbody {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  min-height: 100%;
+
+
+}
+
+.left {
+  display: flex;
+  flex-flow: column;
+  background-color: antiquewhite;
+  border-right: 2px solid black;
+  text-align: center;
+  width: 20%;
+  position: relative;
+  min-height: 100%;
+}
+
+.left a {}
+
+.right {
+  background-color: yellow;
+  align-content: center;
+  width: 80%;
+  position: relative;
+  min-height: 100%;
+}

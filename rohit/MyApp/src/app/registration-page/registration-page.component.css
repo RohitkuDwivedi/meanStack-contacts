@@ -1,0 +1,12 @@
+.bigBox {
+  background-color: aliceblue;
+  display: flex;
+  flex-flow: column;
+}
+
+.box {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}

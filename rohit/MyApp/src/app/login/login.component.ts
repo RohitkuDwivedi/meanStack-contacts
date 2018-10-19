@@ -11,20 +11,24 @@ export class LoginComponent implements OnInit {
   UserName="";
   constructor(private api : ApiService , private router:Router) { }
   login(){
+    if(this.UserName==""){
+      alert("blank")
+      return ;
+    }
     const sendUser = {
       UserName: this.UserName,
       Password:this.Password,
     }
     this.api.authenticate(sendUser).subscribe(res => {
-      if (1) {
         this.api.saveUser(sendUser);
         this.router.navigate(['/viewContact']);
-      } else {
-        // Error msg
-      }
-
-    });
-    //this.router.navigate(['/viewContact']); // to navigate after authentication of user 
+        console.log("RES:"+res);
+        
+      },
+      err => {console.log("ERR:"+err);},
+      ()=>{this.api.saveUser(sendUser);
+        this.router.navigate(['/viewContact']);}
+    );
   }
   ngOnInit() {
   }

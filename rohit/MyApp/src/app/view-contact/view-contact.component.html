@@ -1,7 +1,9 @@
 <div class='bigbox'>
   <div class="head">
-    <h3>{{USER}}</h3>
-    <h3>Logout</h3>
+    <h3>Name {{USER}}</h3>
+    <div class="logout" >
+        <button (click)="userLogout()">LOGOUT</button>
+    </div>
   </div>
   <div class="body">
     <div (click)="addContact()" class="addNew">
