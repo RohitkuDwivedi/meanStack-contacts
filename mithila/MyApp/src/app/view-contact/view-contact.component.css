@@ -1,0 +1,28 @@
+.bigbox{
+  display:flex;
+  flex-flow: column;
+  background-color: blanchedalmond;
+
+}
+.head{
+  display:flex;
+  flex-flow: row;
+  align-content: ;
+  background-color:blue;
+
+}
+.body{
+  background-color: rgb(145, 111, 60);
+
+
+}
+.addNew{
+  background-color: blueviolet;
+
+
+}
+.contacts{
+  background-color:brown;
+
+
+}

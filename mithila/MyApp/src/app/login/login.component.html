@@ -1,7 +1,11 @@
 <div class="login">
   <hr>
-  <button>LOGIN</button>
+  <input type="text" required name="Username" placeholder="UserName" [(ngModel)]="UserName" >
+  <br>
+  <input type="password" required name="password" placeholder="Password" [(ngModel)]="Password">
+  <br>
+  <button type="button" (click)="login()">LOGIN</button>
   <hr>
-  <button>SIGNUP</button>
+  <button><a href= '/registration'>SIGNUP</a></button>
   <hr>
 </div>

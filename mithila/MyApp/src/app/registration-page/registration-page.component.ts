@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../api.service";
+import {ApiService} from '../api.service';
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
@@ -7,18 +7,18 @@ import {ApiService} from "../api.service";
 })
 export class RegistrationPageComponent implements OnInit {
 
-  Name:String;
-  UserName:any ;
-  Password:any;
-  constructor(private apiService:ApiService) { }
+  Name:  String;
+  UserName: any ;
+  Password: any;
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {}
-  onSubmit(){
+  onSubmit() {
     const sendUser = {
-      Name :this.Name,
+      Name : this.Name,
       UserName: this.UserName,
-      Password:this.Password,
-    }
+      Password: this.Password
+     };
     this.apiService.registerUser(sendUser);
   }
 
