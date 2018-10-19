@@ -1,7 +1,18 @@
 <div>
+  <div class="mainhead">
     <app-header></app-header>
-    <a href="/registration">Registration</a>
-    <a href="/login">Login</a>
-</div>
+  </div>
+  <div class="mainbody">
 
-<router-outlet></router-outlet>
+      <div class="left">
+          <a href="/registration">Registration</a><br>
+          <a href="/login">Login</a><br>
+          <a href="/viewContact">View Contact</a><br>
+          <a href="/contactDetails">Contact details</a>
+        </div>
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

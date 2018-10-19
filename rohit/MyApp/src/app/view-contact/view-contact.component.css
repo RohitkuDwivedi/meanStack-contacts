@@ -1,0 +1,23 @@
+.bigbox{
+    display:flex;
+    flex-flow: column;
+  
+  }
+  .head{
+    display:flex;
+    flex-flow: row;
+    align-content:space-between ;  
+  }
+  .body{
+  
+  
+  }
+  .addNew{
+  
+  
+  }
+  .contacts{
+  
+  
+  }
+  

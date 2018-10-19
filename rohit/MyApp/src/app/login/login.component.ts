@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ApiService } from '../api.service';
+import {Router } from "@angular/router";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   Password="";
   UserName="";
-  constructor() { }
+  constructor(private api : ApiService , private router:Router) { }
   login(){
-    alert("Name: "+this.UserName+"\nPassword: "+this.Password);
-    
+    const sendUser = {
+      UserName: this.UserName,
+      Password:this.Password,
+    }
+    this.api.authenticate(sendUser).subscribe(res => {
+      if (res.success) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        // Error msg
+      }
+
+    });
+    this.router.navigate(['/viewContact']); // to navigate after authentication of user 
   }
   ngOnInit() {
   }

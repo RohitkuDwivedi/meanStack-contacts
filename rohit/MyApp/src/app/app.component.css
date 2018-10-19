@@ -1,0 +1,28 @@
+.mainhead{
+    height:10%;
+  }
+  .mainbody{
+    height:90%;
+    display: flex;
+    flex-flow: row;
+  
+  
+  }
+  .left{
+    border-right: 2px solid black;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+  }
+  .left a{
+    
+  }
+  .right{
+    align-content: center;
+    width: 80%;
+    height:100%;
+  
+  
+  
+  }
+  

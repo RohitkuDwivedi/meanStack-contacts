@@ -22,3 +22,11 @@ const Contact = module.exports = mongoose.model("Contact", ContactSchema);
 module.exports.addUser= (user,callback)=>{
   Contact.create(user,callback)
 }
+
+module.exports.authenticate = (user, callback) => {
+  query = {
+      UserName: user.UserName,
+      Password: user.Password
+  }
+  Contact.findOne(query, callback);
+}
