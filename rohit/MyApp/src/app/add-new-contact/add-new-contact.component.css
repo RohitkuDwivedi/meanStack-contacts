@@ -1,0 +1,10 @@
+.bigBox{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.bigBox input{
+    margin-top:5px;
+    width: 50%;
+}

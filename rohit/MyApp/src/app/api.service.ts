@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Http,Headers} from "@angular/http"; //import headers
-import { map } from 'rxjs/operators'; //import map
+import {HttpClient} from "@angular/common/http"; //import headers
+import {map} from 'rxjs/operators'; //import map
 
 
 @Injectable({
@@ -8,17 +8,40 @@ import { map } from 'rxjs/operators'; //import map
 })
 export class ApiService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
   registerUser(user) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post("http://localhost:3000/registeration", user,{ headers: headers }).pipe(map(res => res.json())); 
+    return this.http.post("http://localhost:3000/registeration", user)
+    .pipe(map(res =>res )); 
   }
-  authenticate(user) {
-    const headers = new Headers(); 
-    headers.append('Content-Type', 'application/json'); 
-    this.http.post("http://localhost:3000/registeration/authenticate", user, { headers: headers }).pipe(map(res => res.json()));   // yet to find why???
 
+  authenticate(user) {
+    return this.http.post("http://localhost:3000/registeration/authenticate", user)
+    .pipe(map(res => console.log(res) ))   // yet to find why???
+  }
+
+  addToContact(data){
+    return this.http.put("http://localhost:3000/registeration/add",data).subscribe(res => console.log(res))
+    
+  }
+
+  // loading and storing data in variables of browser
+  saveUser(user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  
+  loadUser() {
+    
+    let result = JSON.parse(localStorage.getItem('user'));
+    return result;
+    
+  }
+  
+  isLoggedIn() {
+    return (this.loadUser()) ? true : false;
+  }
+  
+  logOut() {
+    localStorage.clear();
   }
 
 }

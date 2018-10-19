@@ -9,7 +9,6 @@ router.post("/", (req, res) => {
         else Functions.sendRes(res, true,
             "User Created, UserID: " + user._id);
     })
-    res.send("");
 });
 router.post("/authenticate", (req, res) => {
     console.log(req.body);
@@ -26,7 +25,16 @@ router.post("/authenticate", (req, res) => {
             };
             Functions.sendRes(res, true, sendUser)
         }
-        res.send("123");
     })
 });
+router.put("/add", (req , res) => {
+    console.log("put called")
+    console.log(req.body)
+    Contacts.update({UserName:req.body.UserName}, {$push: {contacts:req.body.newContact}},
+        (err,user)=>{
+            if (err || user == null || user == "") Functions.sendRes(res, false, "Unable to add to conact");
+        else Functions.sendRes(res, true, "Contact Added")
+    })
+})
+
 module.exports = router;

@@ -6,14 +6,19 @@
   .head{
     display:flex;
     flex-flow: row;
-    align-content:space-between ;  
+    justify-content: space-between ;
+    background-color: darkgray;  
   }
   .body{
-  
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  justify-content: end;
   
   }
   .addNew{
-  
+    background-color: aquamarine;
+    
   
   }
   .contacts{

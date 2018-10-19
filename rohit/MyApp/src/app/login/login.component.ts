@@ -16,14 +16,15 @@ export class LoginComponent implements OnInit {
       Password:this.Password,
     }
     this.api.authenticate(sendUser).subscribe(res => {
-      if (res.success) {
-        this.router.navigate(['/dashboard']);
+      if (1) {
+        this.api.saveUser(sendUser);
+        this.router.navigate(['/viewContact']);
       } else {
         // Error msg
       }
 
     });
-    this.router.navigate(['/viewContact']); // to navigate after authentication of user 
+    //this.router.navigate(['/viewContact']); // to navigate after authentication of user 
   }
   ngOnInit() {
   }

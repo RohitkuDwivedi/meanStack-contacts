@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../api.service";
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-registration-page',
@@ -13,7 +12,10 @@ export class RegistrationPageComponent implements OnInit {
   Name:String;
   UserName:any ;
   Password:any;
-  constructor(private apiService:ApiService, private router : Router) { }
+  constructor(
+    private apiService:ApiService,
+    private router : Router
+    ) {}
 
   ngOnInit() {}
   onSubmit(){
@@ -23,8 +25,8 @@ export class RegistrationPageComponent implements OnInit {
       Password:this.Password,
     }
     this.apiService.registerUser(sendUser).subscribe(res =>{ 
-    
     })
+    this.apiService.saveUser(sendUser);
     this.router.navigate(['/login']);
 
   }
