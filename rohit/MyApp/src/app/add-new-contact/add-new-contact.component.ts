@@ -40,6 +40,6 @@ export class AddNewContactComponent implements OnInit {
       err => console.log(err),
       () => console.log("addToContact Executed")      
     )
-    alert("contact added with\nname:"+addContact.fname+"\nPhno:"+addContact.number);
+    this.router.navigate(["/viewContact"]);
   }
 }

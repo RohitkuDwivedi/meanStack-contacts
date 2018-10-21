@@ -1,13 +1,13 @@
 <div class='bigbox'>
   <div class="head">
     <h3>Name {{USER}}</h3>
-    <div class="logout" >
-        <button (click)="userLogout()">LOGOUT</button>
+    <div class="logout">
+      <button (click)="userLogout()">LOGOUT</button>
     </div>
   </div>
   <div class="body">
     <div (click)="addContact()" class="addNew">
-     <span>+</span> Add New Contact
+      <span>+</span> Add New Contact
     </div>
     <div class="contacts" *ngFor="let Contact of data[0].contacts ">
       <span class="text">Name: </span>
@@ -16,6 +16,5 @@
       <span class="text">Email: </span>
       <span class="text">{{Contact.email}}</span>
     </div>
-  </div> 
   </div>
-  
+</div>

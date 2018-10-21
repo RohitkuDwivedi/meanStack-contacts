@@ -29,7 +29,9 @@ router.post("/authenticate", (req, res) => {
 });
 
 router.put("/add", (req , res) => {
-    Contacts.update({UserName:req.body.UserName}, {$push: {contacts:req.body.newContact}},
+    console.log(req.body.UserName,req.body.newContact);
+    
+    Contacts.updateOne({UserName:req.body.UserName}, {$push: {contacts:req.body.newContact}},
         (err,user)=>{
             if (err || user == null || user == "") Functions.
             sendRes(res, false, "Unable to add to conact");
@@ -46,6 +48,4 @@ Contacts.find(req.body, (err,data)=>{
 
 })
 });
-
-
 module.exports = router;
