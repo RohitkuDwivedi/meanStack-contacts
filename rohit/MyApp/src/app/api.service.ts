@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http"; //import headers
-import {map} from 'rxjs/operators'; //import map
 
 
 @Injectable({
@@ -8,22 +7,22 @@ import {map} from 'rxjs/operators'; //import map
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient){}
   registerUser(user) {
     return this.http.post("http://localhost:3000/registeration", user)
-    .pipe(map(res =>res )); 
   }
 
   authenticate(user) {
     return this.http.post("http://localhost:3000/registeration/authenticate", user)
   }
-
-  addToContact(data){
-    return this.http.put("http://localhost:3000/registeration/add",data).subscribe(res => console.log(res))
-    
+  getAllContacts(query){
+    return this.http.post("http://localhost:3000/registeration/contacts",query)
   }
 
-  // loading and storing data in variables of browser
+  addToContact(data){
+    return this.http.put("http://localhost:3000/registeration/add",data)
+  }
+
   saveUser(user) {
     localStorage.setItem('user', JSON.stringify(user));
   }

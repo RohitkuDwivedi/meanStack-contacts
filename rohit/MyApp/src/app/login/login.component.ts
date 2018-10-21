@@ -7,30 +7,38 @@ import {Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  Password="";
-  UserName="";
+  Password:any;
+  UserName:any;
   constructor(private api : ApiService , private router:Router) { }
+
+  ngOnInit() {}
+
   login(){
-    if(this.UserName==""){
-      alert("blank")
-      return ;
-    }
     const sendUser = {
       UserName: this.UserName,
       Password:this.Password,
     }
-    this.api.authenticate(sendUser).subscribe(res => {
+    if(sendUser.UserName===undefined || sendUser.Password===undefined){
+      alert("blank")
+    }
+    else{
+    
+    this.api.authenticate(sendUser)
+    .subscribe(
+      res => {
+        if(res){
         this.api.saveUser(sendUser);
         this.router.navigate(['/viewContact']);
-        console.log("RES:"+res);
-        
+      }else{
+        alert(res)
+        this.UserName=""
+        this.Password=""
+      }
+        console.log(res)
       },
-      err => {console.log("ERR:"+err);},
-      ()=>{this.api.saveUser(sendUser);
-        this.router.navigate(['/viewContact']);}
+      err => alert("ERR:"+err),
     );
   }
-  ngOnInit() {
-  }
-
+}
+  
 }

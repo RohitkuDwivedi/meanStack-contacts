@@ -20,13 +20,19 @@
     background-color: aquamarine;
   }
   .logout{
-    background-color: yellow;
+    color: black;  
   }
   .logout:hover{
-    background-color: yellowgreen;    
+     color: red;
   }
   .contacts{
-  
-  
+    display: flex;
+    justify-content:space-around;
+  }
+  .contacts:nth-child(2n+1){
+    background-color: gray; 
+  }
+  .text{
+    justify-content: flex-start;
   }
   

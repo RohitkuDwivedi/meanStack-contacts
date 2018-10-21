@@ -9,7 +9,13 @@
     <div (click)="addContact()" class="addNew">
      <span>+</span> Add New Contact
     </div>
-    <div class="contacts">All-Contacts</div>
+    <div class="contacts" *ngFor="let Contact of data[0].contacts ">
+      <span class="text">Name: </span>
+      <span class="text">{{Contact.fname}} {{Contact.lname}}</span>
+      <span class="text">Phno: </span>{{Contact.number}}
+      <span class="text">Email: </span>
+      <span class="text">{{Contact.email}}</span>
+    </div>
   </div> 
   </div>
   

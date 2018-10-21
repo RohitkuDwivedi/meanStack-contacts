@@ -10,6 +10,7 @@ import { Router } from "@angular/router"
 export class AddNewContactComponent implements OnInit {
 
   constructor(private api: ApiService,private router:Router) {
+    
     if(!this.api.isLoggedIn()){
       alert("You are not Logged in!!")
       router.navigate(["/login"]);
@@ -20,8 +21,8 @@ export class AddNewContactComponent implements OnInit {
   number: number;
   email: any;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   addnewContact() {
     const addContact = {
       fname: this.fname,
@@ -30,11 +31,15 @@ export class AddNewContactComponent implements OnInit {
       email: this.email
     }
     const data = {
-      UserName: this.api.loadUser().UserName,
+      UserName: this.api.loadUser("user").UserName,
       newContact: addContact
     }
-    console.log(data);
-    this.api.addToContact(data);
-    alert(addContact.fname);
+    this.api.addToContact(data)
+    .subscribe(
+      next=> console.log(next),
+      err => console.log(err),
+      () => console.log("addToContact Executed")      
+    )
+    alert("contact added with\nname:"+addContact.fname+"\nPhno:"+addContact.number);
   }
 }
